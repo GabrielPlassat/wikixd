@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="FabMob Wiki Chatbot",
+    page_title="WikiXD Chatbot",
     page_icon="🚗",
     layout="wide"
 )
@@ -104,13 +104,13 @@ def construire_contexte(pages_df):
 
 
 SYSTEM_PROMPT = (
-    "Tu es un assistant expert de la Fabrique des Mobilités (FabMob). "
-    "La FabMob anime une communauté de projets, véhicules, acteurs et communs open source "
+    "Tu es un assistant expert des véhicules intermédiaires et des mobilités. "
+    "L'extrême défi mobilité anime une communauté de projets, véhicules, acteurs et communs open source "
     "autour de la mobilité durable. "
     "Tu réponds UNIQUEMENT à partir des sources FabMob fournies en contexte. "
     "Si l'information est absente du contexte, dis-le clairement. "
     "Tu structures TOUJOURS ta réponse en distinguant la provenance de chaque information : "
-    "- 📖 Wiki FabMob : pages du wiki (véhicules, acteurs, projets, communs...) "
+    "- 📖 WikiXD : pages du wiki (véhicules, acteurs, projets, communs...) "
     "- 💬 Forum XD : discussions du forum Extrême Défi — tu DOIS toujours inclure le lien cliquable vers le topic : [Titre du topic](URL) "
     "- 📊 Retours utilisateurs : retours d'expérience des véhicules "
     "Si plusieurs sources abordent le même sujet, croise-les et signale convergences ou divergences. "
@@ -119,9 +119,9 @@ SYSTEM_PROMPT = (
 )
 
 SYSTEM_PROMPT_CONSEILS = (
-    "Tu es un assistant de la Fabrique des Mobilités. "
+    "Tu es un assistant du programme extrême Défi "
     "À partir de la question posée et des pages wiki trouvées, génère 2 ou 3 conseils courts "
-    "pour encourager la personne à contribuer à la communauté FabMob. "
+    "pour encourager la personne à contribuer à la communauté. "
     "Chaque conseil doit : "
     "1. Suggérer de compléter une page wiki spécifique (donne le titre exact de la page) "
     "   si des informations semblent manquantes, OU "
@@ -215,7 +215,7 @@ with col_chat:
             st.markdown(
                 "Bonjour ! Je suis le ChatBot XD Mobilité. "
                 "Je peux répondre à vos questions sur les véhicules intermédiaires, "
-                "les projets, les acteurs et les communs de la FabMob.\n\n"
+                "les projets, les acteurs.\n\n"
                 "💡 **Conseil** : posez des questions directes pour de meilleurs résultats.\n"
                 "Exemple : *Quelles sont les caractéristiques d'Acticycle ?*"
             )
@@ -276,10 +276,10 @@ with col_chat:
 with col_side:
     st.markdown("### 🔗 Ressources FabMob")
     st.markdown(
-        "- [🌐 Wiki FabMob](https://wikixd.fabmob.io)\n"
+        "- [🌐 WikiXD](https://wikixd.fabmob.io)\n"
         "- [💬 Forum XD](https://forum.fabmob.io/c/25)\n"
         "- [🚗 eXtrême Défi](https://xd.ademe.fr)\n"
         "- [📊 Expérimentations 30vélis](https://30veli.fabmob.io/)\n"
-        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Aide:Premiers_pas)"
+        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Utiliser_les_outils_collaboratifs_de_l%27XD)"
     )
 
