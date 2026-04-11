@@ -196,7 +196,7 @@ with col_chat:
 
     # Liens rapides
     st.markdown(
-        "🔗 [Wiki FabMob](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
+        "🔗 [Wikixd](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
         "💬 [Forum XD](https://forum.fabmob.io/c/extreme-defi/) &nbsp;|&nbsp; "
         "📊 [eXtrême Défi](https://xd.ademe.fr)",
         unsafe_allow_html=True
@@ -224,7 +224,7 @@ with col_chat:
             st.markdown(
                 "Bonjour ! Je suis le ChatBot XD Mobilité. "
                 "Je peux répondre à vos questions sur les véhicules intermédiaires, "
-                "les projets, les acteurs et les communs de la FabMob.\n\n"
+                "les projets, les acteurs et les communs.\n\n"
                 "💡 **Conseil** : posez des questions directes pour de meilleurs résultats.\n"
                 "Exemple : *Quelles sont les caractéristiques d'Acticycle ?*"
             )
@@ -289,6 +289,6 @@ with col_side:
         "- [💬 Forum XD](https://forum.fabmob.io/c/extreme-defi/)\n"
         "- [🚗 eXtrême Défi](https://xd.ademe.fr)\n"
         "- [📊 Expérimentations 30vélis](https://30veli.fabmob.io/)\n"
-        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Aide:Premiers_pas)"
+        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Utiliser_les_outils_collaboratifs_de_l%27XD )"
     )
 
