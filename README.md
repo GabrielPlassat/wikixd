@@ -4,8 +4,8 @@ Informations issues du wiki, forum et site 30vélis
 
 Propulsé par **Claude (Anthropic)** et **OpenAI Embeddings**.
 
-🌐 **Wiki FabMob** : https://wikixd.fabmob.io  
-💬 **Forum XD** : https://forum.fabmob.io/c/25  
+🌐 **Wikixd** : https://wikixd.fabmob.io  
+💬 **Forum XD** : https://forum.fabmob.io/c/extreme-defi/
 📊 **Expérimentations 30vélis** : https://30veli.fabmob.io  
 🚗 **eXtrême Défi** : https://xd.ademe.fr
 
