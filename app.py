@@ -17,7 +17,7 @@ st.set_page_config(
 # ── Chargement des ressources (mis en cache) ──────────────────────────────────
 @st.cache_resource
 def charger_ressources():
-    with open("fabmob_embeddings_openai.pkl", "rb") as f:
+    with open("fabmob_embeddings_openai_light.pkl", "rb") as f:
         data = pickle.load(f)
     anthropic_client = anthropic.Anthropic(api_key=st.secrets["ANTHROPIC_API_KEY"])
     openai_client    = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
