@@ -1,7 +1,0 @@
-llama-index
-llama-index-llms-anthropic
-llama-index-embeddings-huggingface
-streamlit
-torch
-transformers
-sentence-transformers
