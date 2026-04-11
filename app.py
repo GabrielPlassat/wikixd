@@ -222,7 +222,7 @@ with col_chat:
             st.markdown(
                 "Bonjour ! Je suis le ChatBot XD Mobilité. "
                 "Je peux répondre à vos questions sur les véhicules intermédiaires, "
-                "les projets, les acteurs et les communs de la FabMob.\n\n"
+                "les projets, les acteurs et les communs.\n\n"
                 "💡 **Conseil** : posez des questions directes pour de meilleurs résultats.\n"
                 "Exemple : *Quelles sont les caractéristiques d'Acticycle ?*"
             )
