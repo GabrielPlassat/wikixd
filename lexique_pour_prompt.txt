@@ -1,0 +1,87 @@
+# Lexique XD Mobilités — Termes clés pour alimentation d'un LLM
+> Source : Bilan XD Mobilité 2022-2025 (document interne confidentiel, ADEME, septembre 2025)
+> Usage : contexte LLM — termes liés aux véhicules intermédiaires (vélis), à leur industrialisation, aux expérimentations et à la méthode XD
+
+---
+
+## 1. Programme & méthode
+
+### XD / eXtrême Défi
+Programme pluri-annuel de l'ADEME (2022–2025) visant à développer une nouvelle filière industrielle de véhicules intermédiaires électriques dans les territoires périurbains et ruraux. Inspiré des challenges DARPA et de l'innovation par missions (Mazzucato), il combine financement par appels à projets (AAP), groupes de travail coopératifs, expérimentations territoriales et recherche en sciences humaines et sociales. Budget : 6 M€ ADEME + 15 M€ France 2030.
+
+### XD Mobilité
+La déclinaison du programme eXtrême Défi appliquée au secteur des mobilités. Mission : sortir de la dépendance à l'automobile thermique dans les zones peu denses en proposant une offre de véhicules électriques légers, économiques, réparables et désirables. Distingue deux axes : l'offre (les véhicules) et la demande (les usages et comportements).
+
+### Méthode XD
+Approche d'innovation pour problèmes complexes, fondée sur : (1) des contraintes claires mais sans limites techniques imposées, (2) des expérimentations rapides avec des prototypes (MVP / prétotypes), (3) l'apprentissage par l'erreur (essai-erreur), (4) la coopération ouverte entre acteurs hétérogènes, (5) une vision long terme associée à des jalons courts. S'inspire de l'effectuation et du DARPA Grand Challenge.
+
+### Effectuation
+Posture stratégique utilisée dans l'XD : on n'attend pas de connaître les solutions à l'avance, mais on agit avec les moyens disponibles, on tire parti des surprises et opportunités, et on ajuste en cours de route. Oppose à la planification causale classique.
+
+### Approche systémique
+Vision intégrant simultanément les quatre domaines du système de transport : les véhicules, les énergies, les infrastructures (physiques et numériques) et l'information. L'XD adopte cette approche pour éviter de résoudre un problème en en créant un autre.
+
+### Innovation par missions (Mission-based innovation)
+Cadre théorique issu des travaux de Mariana Mazzucato pour la Commission européenne. Préconise des défis sociétaux définis collectivement, une réglementation intelligente, des boucles de rétroaction tout au long de la chaîne d'innovation, et un engagement citoyen. Appliqué dans l'XD comme modèle de gouvernance de la transition.
+
+### Problème complexe
+Problème au sens de "complexus" (tissé ensemble) pour lequel les relations de causalité entre actions et résultats ne sont pas établies a priori mais seulement a posteriori. Requiert l'expérimentation et l'apprentissage en marchant. L'industrialisation des véhicules intermédiaires est qualifiée de problème complexe dans le document.
+
+### Coopétition
+Concept utilisé dans l'XD : mélange de compétition (les équipes concourent) et de coopération (elles partagent des composants, des méthodes, des retours d'expérience). Remplace la compétition toxique jugée contre-productive dans les domaines d'exploration radicalement nouveaux.
+
+### DARPA Grand Challenge
+Référence fondatrice de la méthode XD. Concours lancé en 2004 par la Defense Advanced Research Projects Agency américaine pour des véhicules autonomes. Leçons retenues : faire sortir les experts du cadre, imposer des contraintes (pas des limites), bénéficier rapidement de prétotypes, favoriser les applications commerciales dès le départ, penser à long terme tout en testant rapidement.
+
+### Objet lien
+Concept désignant le prototype de véhicule comme catalyseur de dialogue entre parties prenantes (constructeur, utilisateur, aménageur, législateur). Le prototype n'est pas une fin en soi mais un medium permettant d'engager des discussions et d'itérer collectivement.
+
+### Wiki XD (wikixd.fabmob.io)
+Plateforme collaborative de type MediaWiki hébergée par FabMob, servant de mémoire collective du programme. Chaque véhicule y est documenté selon 6 parties : narratif, écosystème, volet économique, retours d'expérience XD, description technique et bilan énergétique. Accessible publiquement.
+
+---
+
+## 2. Véhicules intermédiaires / Vélis
+
+### Vélis (Véhicules Intermédiaires)
+Terme générique désignant les véhicules électriques se situant entre le vélo à assistance électrique (VAE) et l'automobile. Appellation portée par l'XD et l'association AVELI. Couvrent les catégories L du règlement européen EU-168. Caractéristiques visées par l'XD : 10 fois moins coûteux, 10 fois plus durables, 10 fois plus légers, 10 fois plus simples et 10 fois plus efficients qu'une automobile. Coût d'usage typique : ~1 €/100 km.
+
+### Véhicule intermédiaire
+Synonyme de véli. Désigne tout véhicule électrique léger intermédiaire entre le vélo et la voiture, couvrant un vaste spectre de formes, de catégories réglementaires et d'usages : mobilité personnelle, livraison du dernier kilomètre, usage professionnel, transport collectif léger, etc.
+
+### Véli actif (véli actif 45)
+Sous-catégorie de véhicule intermédiaire intégrant un pédalier (l'utilisateur pédale), vitesse maximale d'environ 45 km/h. Génère des externalités positives pour la santé de l'utilisateur. Empreinte carbone (ACV complète) parmi les plus faibles du secteur.
+
+### Véli L6/L7
+Véhicule intermédiaire relevant des catégories L6 ou L7 du règlement européen (quadricycle léger ou lourd), comparable à une "voiture sans permis" électrique améliorée. Exemple de référence utilisé dans le document : Citroën AMI. Empreinte carbone intermédiaire entre les VAE et les BEV.
+
+### VAE (Vélo à Assistance Électrique)
+Véhicule électrique léger à deux roues, catégorie de référence inférieure aux vélis dans le spectre. Le VAE est le véhicule électrique le plus vendu en France (rapport 2:1 par rapport aux voitures électriques). Son succès industriel est une source d'inspiration pour la filière des vélis.
+
+### Catégories L (règlement européen EU-168-2013)
+Classification réglementaire européenne encadrant les homologations des véhicules à deux ou trois roues et des quadricycles, sur laquelle s'appuient les vélis. Principales catégories pertinentes pour les vélis :
+
+- **L1eA** : cyclomoteur à deux roues (jusqu'à 25 km/h, ≤1 kW) — correspond aux vélos électriques
+- **L1eB** : cyclomoteur à deux roues (jusqu'à 45 km/h, ≤4 kW)
+- **L2e** : cyclomoteur à trois roues (jusqu'à 45 km/h)
+- **L3e** : motocyclette à deux roues (>45 km/h, >4 kW)
+- **L5e** : tricycle motorisé
+- **L6e** : quadricycle léger (masse ≤450 kg, vitesse ≤45 km/h, puissance ≤4 kW) — "voiture sans permis"
+- **L7e** : quadricycle lourd (masse ≤600 kg, vitesse >45 km/h) — "mini-voiture"
+
+Le règlement EU-168-2013 est en cours de révision pour mieux prendre en compte les innovations électroniques et les nouvelles formes de véhicules intermédiaires.
+
+### BEV (Battery Electric Vehicle)
+Véhicule électrique à batterie, désignant ici principalement les voitures électriques (ex. Citroën e-C3). Référence de comparaison pour évaluer l'empreinte carbone et les coûts des vélis.
+
+### ICE (Internal Combustion Engine)
+Moteur à combustion interne. Désigne les véhicules thermiques (essence, diesel) auxquels les vélis se substituent.
+
+### VSP (Voiture Sans Permis)
+Catégorie de véhicule correspondant aux quadricycles légers (L6e), historiquement commercialisée par Aixam et Ligier. La Citroën AMI est l'exemple le plus récent et emblématique. Les VSP sont une porte d'entrée réglementaire et commerciale pour certains vélis.
+
+### Vélomobile
+Véhicule à propulsion humaine (et/ou assistance électrique), carénée, à deux ou trois roues. Forme historique de véhicule intermédiaire, représentée dans l'XD par des projets comme le "Voyage à vélo solaire Brest-Istanbul".
+
+### Vélobus
+Véhicule intermédiaire collectif, à propulsion humaine et/ou électrique, permettant le transport de plusieurs personnes. Cas d'usage où la puissance du moteur est utilisée 
