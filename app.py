@@ -194,7 +194,7 @@ with col_chat:
 
     # Liens rapides
     st.markdown(
-        "🔗 [Wiki FabMob](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
+        "🔗 [WikiXD](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
         "💬 [Forum XD](https://forum.fabmob.io/c/25) &nbsp;|&nbsp; "
         "📊 [eXtrême Défi](https://xd.ademe.fr)",
         unsafe_allow_html=True
@@ -287,6 +287,6 @@ with col_side:
         "- [💬 Forum XD](https://forum.fabmob.io/c/25)\n"
         "- [🚗 eXtrême Défi](https://xd.ademe.fr)\n"
         "- [📊 Expérimentations 30vélis](https://30veli.fabmob.io/)\n"
-        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Aide:Premiers_pas)"
+        "- [📋 Contribuer au wiki](https://wikixd.fabmob.io/wiki/Utiliser_les_outils_collaboratifs_de_l%27XD )"
     )
 
