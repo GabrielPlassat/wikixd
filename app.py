@@ -187,7 +187,7 @@ with col_chat:
 
     # Liens rapides
     st.markdown(
-        "🔗 [Wiki FabMob](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
+        "🔗 [WikiXD](https://wikixd.fabmob.io) &nbsp;|&nbsp; "
         "💬 [Forum XD](https://forum.fabmob.io/c/25) &nbsp;|&nbsp; "
         "📊 [eXtrême Défi](https://xd.ademe.fr)",
         unsafe_allow_html=True
