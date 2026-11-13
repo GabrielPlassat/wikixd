@@ -73,6 +73,17 @@ const FEED = `${API}?hidebots=1&translations=filter&urlversion=2&days=${DAYS}&li
 
 let items = [];
 
+/* --- Source 0 : instantané data.json mis à jour toutes les 30 min par GitHub Actions --- */
+let snapshotTime = null;
+async function fromSnapshot(){
+  const r = await fetch("data.json?t=" + Date.now(), {cache:"no-store"});
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  const d = await r.json();
+  snapshotTime = d.generatedAt ? new Date(d.generatedAt) : null;
+  const limit = Date.now() - DAYS*864e5;
+  return d.items.map(i => ({...i, date: new Date(i.date)})).filter(i => i.date >= limit);
+}
+
 /* --- Source 1 : API JSON MediaWiki (autorise le navigateur via origin=*) --- */
 async function fromJsonApi(){
   const since = new Date(Date.now() - DAYS*864e5).toISOString();
@@ -173,13 +184,16 @@ function render(){
 async function load(){
   const list = document.getElementById("list");
   if(!items.length) list.innerHTML = '<div class="state">Chargement…</div>';
-  const sources = [fromJsonApi, fromAtom, fromAtomProxy];
+  // fromSnapshot d’abord : pas de blocage entre sites, chargement immédiat
+  const sources = [fromSnapshot, fromJsonApi, fromAtom, fromAtomProxy];
   const errors = [];
   for(const src of sources){
     try{
       items = (await src()).sort((a,b)=>b.date-a.date);
       render();
-      document.getElementById("foot").textContent = "Mis à jour à " + timeFmt.format(new Date());
+      document.getElementById("foot").textContent = (src===fromSnapshot && snapshotTime)
+        ? "Données du wiki relevées le " + dayFmt.format(snapshotTime) + " à " + timeFmt.format(snapshotTime)
+        : "Mis à jour à " + timeFmt.format(new Date());
       return;
     }catch(e){ errors.push(src.name+" : "+e.message); }
   }
