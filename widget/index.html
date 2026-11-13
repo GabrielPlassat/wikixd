@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dernières modifications – Wiki XD</title>
+<title>Nouvelles pages – Wiki XD</title>
 <style>
   :root{
     --bg:#ffffff; --fg:#1f2937; --muted:#6b7280; --line:#e5e7eb;
@@ -52,8 +52,8 @@
 <body>
 <div class="w">
   <header>
-    <h1><a href="https://wikixd.fabmob.io/wiki/Spécial:Modifications_récentes" target="_blank" rel="noopener">
-      Dernières modifications du wiki XD</a> <span class="count" id="count"></span></h1>
+    <h1><a href="https://wikixd.fabmob.io/wiki/Spécial:Nouvelles_pages" target="_blank" rel="noopener">
+      Nouvelles pages du wiki XD</a> <span class="count" id="count"></span></h1>
     <input type="search" id="q" placeholder="Filtrer (page, auteur…)">
     <button id="refresh" title="Actualiser">↻</button>
   </header>
@@ -64,7 +64,7 @@
 <script>
 /* ===== Réglages ===== */
 const WIKI  = "https://wikixd.fabmob.io";
-const DAYS  = 7;     // période couverte
+const DAYS  = 30;    // période couverte (jours)
 const LIMIT = 50;    // nombre max de modifications
 const REFRESH_MIN = 10; // actualisation automatique (minutes), 0 = désactivé
 
@@ -73,24 +73,13 @@ const FEED = `${API}?hidebots=1&translations=filter&urlversion=2&days=${DAYS}&li
 
 let items = [];
 
-/* --- Source 0 : instantané data.json mis à jour toutes les 30 min par GitHub Actions --- */
-let snapshotTime = null;
-async function fromSnapshot(){
-  const r = await fetch("data.json?t=" + Date.now(), {cache:"no-store"});
-  if(!r.ok) throw new Error("HTTP "+r.status);
-  const d = await r.json();
-  snapshotTime = d.generatedAt ? new Date(d.generatedAt) : null;
-  const limit = Date.now() - DAYS*864e5;
-  return d.items.map(i => ({...i, date: new Date(i.date)})).filter(i => i.date >= limit);
-}
-
 /* --- Source 1 : API JSON MediaWiki (autorise le navigateur via origin=*) --- */
 async function fromJsonApi(){
   const since = new Date(Date.now() - DAYS*864e5).toISOString();
   const p = new URLSearchParams({
     action:"query", list:"recentchanges", format:"json", formatversion:"2", origin:"*",
     rcprop:"title|timestamp|user|comment|sizes|ids|flags", rcshow:"!bot",
-    rctype:"edit|new", rclimit:String(LIMIT), rcend:since
+    rctype:"new", rclimit:String(LIMIT), rcend:since
   });
   const r = await fetch(`${API}?${p}`);
   if(!r.ok) throw new Error("HTTP "+r.status);
@@ -132,12 +121,7 @@ function parseAtom(xml){
 async function fromAtom(){
   const r = await fetch(FEED + "&origin=*");
   if(!r.ok) throw new Error("HTTP "+r.status);
-  return parseAtom(await r.text());
-}
-async function fromAtomProxy(){
-  const r = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(FEED));
-  if(!r.ok) throw new Error("HTTP "+r.status);
-  return parseAtom(await r.text());
+  return parseAtom(await r.text()).filter(i => i.isNew);
 }
 
 /* --- Affichage --- */
@@ -156,21 +140,21 @@ function render(){
   const list = document.getElementById("list");
   const shown = items.filter(i => !q || (i.title+" "+i.user+" "+i.comment).toLowerCase().includes(q));
   document.getElementById("count").textContent = `· ${shown.length} sur ${DAYS} jours`;
-  if(!shown.length){ list.innerHTML = `<div class="state">Aucune modification${q?" pour ce filtre":""}.</div>`; return; }
+  if(!shown.length){ list.innerHTML = `<div class="state">Aucune nouvelle page${q?" pour ce filtre":""}.</div>`; return; }
 
   let html = "", cur = "";
   for(const i of shown){
     const lbl = dayLabel(i.date);
     if(lbl !== cur){ if(cur) html += "</ul>"; html += `<div class="day">${esc(lbl)}</div><ul>`; cur = lbl; }
     const delta = i.delta==null ? "" :
-      `<span class="${i.delta>=0?"plus":"minus"}">${i.delta>0?"+":""}${i.delta.toLocaleString("fr-FR")}</span>`;
+      `<span>${i.delta.toLocaleString("fr-FR")} caractères</span>`;
     html += `<li>
       <div class="top">
         <a class="title" href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.title)}</a>
         <span class="time">${timeFmt.format(i.date)}</span>
       </div>
       <div class="meta">
-        ${i.isNew ? '<span class="badge">nouvelle page</span>' : ""}
+        
         ${i.user ? `<span>par ${esc(i.user)}</span>` : ""}
         ${delta}
         ${i.diff ? `<span class="diff"><a href="${esc(i.diff)}" target="_blank" rel="noopener">voir le diff</a></span>` : ""}
@@ -184,20 +168,17 @@ function render(){
 async function load(){
   const list = document.getElementById("list");
   if(!items.length) list.innerHTML = '<div class="state">Chargement…</div>';
-  // fromSnapshot d’abord : pas de blocage entre sites, chargement immédiat
-  const sources = [fromSnapshot, fromJsonApi, fromAtom, fromAtomProxy];
+  const sources = [fromJsonApi, fromAtom];
   const errors = [];
   for(const src of sources){
     try{
       items = (await src()).sort((a,b)=>b.date-a.date);
       render();
-      document.getElementById("foot").textContent = (src===fromSnapshot && snapshotTime)
-        ? "Données du wiki relevées le " + dayFmt.format(snapshotTime) + " à " + timeFmt.format(snapshotTime)
-        : "Mis à jour à " + timeFmt.format(new Date());
+      document.getElementById("foot").textContent = "Mis à jour à " + timeFmt.format(new Date());
       return;
     }catch(e){ errors.push(src.name+" : "+e.message); }
   }
-  list.innerHTML = `<div class="state err">Impossible de charger les modifications.<br>
+  list.innerHTML = `<div class="state err">Impossible de charger les nouvelles pages.<br>
     <a href="${esc(FEED)}" target="_blank" rel="noopener">Ouvrir le flux directement</a></div>`;
   console.warn(errors);
 }
