@@ -226,3 +226,18 @@ Les réponses distinguent les sources :
 - **Wiki** : https://wikixd.fabmob.io/wiki/Aide:Premiers_pas
 - **Forum** : https://forum.fabmob.io
 - **GitHub FabMob** : https://github.com/fabmob
+
+## Widget « Dernières modifications du wiki XD »
+
+`widget/index.html` : page autonome qui affiche les modifications des 7 derniers jours sur wikixd.fabmob.io (API MediaWiki, avec repli sur le flux Atom).
+
+Une fois GitHub Pages activé (Settings → Pages → branche `main`, dossier `/ (root)`), le widget est disponible à :
+https://gabrielplassat.github.io/wikixd/widget/
+
+Intégration dans une page web :
+
+```html
+<iframe src="https://gabrielplassat.github.io/wikixd/widget/"
+        title="Dernières modifications du wiki XD"
+        width="100%" height="600" style="border:0" loading="lazy"></iframe>
+```
